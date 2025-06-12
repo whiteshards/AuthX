@@ -4,8 +4,8 @@ from fastapi.security import HTTPBearer
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
-from backend.types.user import UserCreate, UserResponse
-from backend.modules.database import Database
+from backend.typing.user import UserCreate, UserResponse
+from modules.database import Database
 import bcrypt
 import jwt
 import os

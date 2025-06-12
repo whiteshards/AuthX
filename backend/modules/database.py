@@ -1,7 +1,7 @@
 
 import os
 from motor.motor_asyncio import AsyncIOMotorClient
-from backend.types.user import UserInDB
+from backend.typing.user import UserInDB
 from datetime import datetime
 from bson import ObjectId
 

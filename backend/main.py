@@ -1,8 +1,8 @@
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.routes.users import router as users_router
-from backend.modules.database import Database
+from routes.users import router as users_router
+from modules.database import Database
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
