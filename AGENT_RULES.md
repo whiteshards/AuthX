@@ -1,0 +1,5 @@
+- don't document or add ANY comments in the code regardless of the reason for adding it
+- keep syntax clean and easy to read with good and consistent naming schemes
+- make reusable code if possible
+- make production level code
+- keep code and file structure consistent
