@@ -23,14 +23,6 @@ app.add_middleware(
 
 app.include_router(users_router)
 
-@app.on_event("startup")
-async def startup():
-    await Database.connect()
-
-@app.on_event("shutdown")
-async def shutdown():
-    await Database.close()
-
 @app.get("/")
 async def root():
     return {"message": "AuthX API is running"}
