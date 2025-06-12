@@ -1,5 +1,5 @@
 
-from fastapi import FastAPI, Request, HTTPException
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes.users import router as users_router
 from modules.database import Database
@@ -8,27 +8,6 @@ from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 
 app = FastAPI(title="AuthX API", version="1.0.0")
-
-@app.middleware("http")
-async def api_key_middleware(request: Request, call_next):
-    if request.url.path == "/":
-        response = await call_next(request)
-        return response
-    
-    api_key = request.headers.get("x-api-key")
-    if api_key != "adminkey":
-        raise HTTPException(status_code=401, detail="Invalid API key")
-    
-    response = await call_next(request)
-    return response
-
-@app.on_event("startup")
-async def startup_event():
-    await Database.connect()
-
-@app.on_event("shutdown")
-async def shutdown_event():
-    await Database.close()
 
 limiter = Limiter(key_func=get_remote_address)
 app.state.limiter = limiter
