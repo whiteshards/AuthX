@@ -1,7 +1,0 @@
-uvicorn
-fastapi
-slowapi
-pydantic[email]
-bcrypt
-pyjwt
-motor
